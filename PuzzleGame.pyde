@@ -25,7 +25,7 @@ Important elements + functions:
 from GameManager import GameManager
 
 def setup():
-    size(640, 360)
+    size(640, 420)
     noStroke()
     fill(255)
     rectMode(CENTER)
