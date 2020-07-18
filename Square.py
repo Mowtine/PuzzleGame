@@ -1,11 +1,24 @@
 
 class Square():
     
-    def __init__(self):
-        pass
+    def __init__(self, x, y, h, w):
+        self.colour = "White"
+        self.x = x
+        self.y = y
+        self.h = h
+        self.w = w
         
     def Flip(self):
-        pass
+        if self.colour == "White":
+            self.colour = "Black"
+        else:
+            self.colour = "White"
+        
         
     def Display(self):
-        pass
+        if self.colour == "white":
+            fill(255)
+        else:
+            fill(0)
+        rect(self.x, self.y, self.h, self.w)
+        
