@@ -4,12 +4,7 @@ from MoveCounter import MoveCounter
 class GameManager():
     
     def __init__(self):
-        self.board = []
-        for range(4):
-            row = []
-            for range(4):
-                row.append(Square())
-            self.board.append(row)
+        pass
         
     def MouseClick(self, square):
         pass
@@ -21,4 +16,4 @@ class GameManager():
         pass
         
     def Display(self):
-        pass
+        #display everything
