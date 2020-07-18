@@ -23,6 +23,7 @@ Important elements + functions:
 """
 
 from GameManager import GameManager
+from MoveCounter import MoveCounter
 
 def setup():
     size(640, 420)
@@ -32,6 +33,7 @@ def setup():
 
 
 def draw():
+    
     background(51)
 
     global jitter
