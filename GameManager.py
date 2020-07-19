@@ -3,17 +3,27 @@ from MoveCounter import MoveCounter
 
 class GameManager():
     
-    def __init__(self):
-        pass
+    def __init__(self, ):
+        self.playerBoard = Board()
+        self.refBoard = Board()
+        self.MoveCounter = MoveCounter()
         
-    def MouseClick(self, square):
-        pass
+    def MouseClick(self, squareX, squareY):
+        self.playerBoard.Click(squareX, squareY)
+        self.MoveCounter.Add()
         
     def CheckWin(self):
-        pass
+        if self.playerBoard.Equals(self.refBoard): #Impliment Equals check in board
+            return True
+        else:
+            return False 
         
     def Reset(self):
-        pass
+        self.MoveCounter.Reset()
+        self.playerBoard.Reset()
         
     def Display(self):
-        #display everything
+        self.playerBoard.Display()
+        self.refBoard.Display()
+        self.MoveCounter.Display()
+        
