@@ -36,6 +36,9 @@ board2X = 700
 board2Y = 150
 board2Z = 400
 gameManager = GameManager(screenWidth, screenHeight, board1X, board1Y, board1Z, board2X, board2Y, board2Z)
+gameManager.refBoard.Click(1, 0)
+gameManager.refBoard.Click(3, 2)
+gameManager.refBoard.Click(2, 3)
 
 def setup():
     
