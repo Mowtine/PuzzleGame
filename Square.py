@@ -14,11 +14,13 @@ class Square():
         else:
             self.colour = "White"
         
-        
     def Display(self):
-        if self.colour == "white":
+        if self.colour == "White":
             fill(255)
         else:
             fill(0)
         rect(self.x, self.y, self.h, self.w)
+        
+    def Reset(self):
+        self.colour = "White"
         

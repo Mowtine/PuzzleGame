@@ -2,31 +2,22 @@
 class MoveCounter():
     
     def __init__(self):
-        pass
+        self.MoveValue = 0
         
-    def Update(self):
-        pass
-        #update counter after every move
+    def Update(self, value):
+        self.MoveValue = value
         
     def Add(self):
-        pass
-        MoveValue=0
-        if mousePressed: 
-        MoveValue = MoveValue + 1
+        self.MoveValue = self.MoveValue + 1
         
     def Reset(self):
-        pass 
-        #if all squares are the same colour 
+        self.MoveValue = 0
         
         
     def Display(self):
-        pass
+        fill(255)
         rect(15,15,100,100)
         fill(0)
-        text('"moves: "+MoveValue',20,20)
-    
-        loadFont()
-        textfont()
+        text("Moves: " + str(self.MoveValue),20,20)
         
-   
         
