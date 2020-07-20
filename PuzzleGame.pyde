@@ -24,26 +24,41 @@ Important elements + functions:
 
 from GameManager import GameManager
 from MoveCounter import MoveCounter
+from Board import Board
+
+screenWidth = 1200
+screenHeight = 600
+
+board1X = 100
+board1Y = 150
+board1Z = 400
+board2X = 700
+board2Y = 150
+board2Z = 400
+gameManager = GameManager(screenWidth, screenHeight, board1X, board1Y, board1Z, board2X, board2Y, board2Z)
 
 def setup():
-    size(640, 420)
+    
+    global gameManager
+    global screenWidth
+    global screenHeight
+    
+    
+    size(screenWidth, screenHeight)
     noStroke()
     fill(255)
-    rectMode(CENTER)
+    #rectMode(CENTER)
 
 
 def draw():
     
+    global gameManager
+    
     background(51)
+    
+    gameManager.Display()
 
-    global jitter
-    # during even-numbered seconds (0, 2, 4, 6...)
-    if second() % 2 == 0:
-        jitter = random(-0.1, 0.1)
-
-    global angle
-    angle = angle + jitter
-    c = cos(angle)
-    translate(width / 2, height / 2)
-    rotate(c)
-    rect(0, 0, 180, 180)
+def mouseClicked():
+    if mouseButton == LEFT:
+        gameManager.Click(mouseX, mouseY)
+    return

@@ -24,3 +24,9 @@ class Square():
     def Reset(self):
         self.colour = "White"
         
+    def IsIn(self, x, y):
+        if x > self.x and x < self.x + self.w and y > self.y and y < self.y + self.h:
+            return True
+        else:
+            return False
+        

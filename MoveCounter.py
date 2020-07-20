@@ -16,8 +16,8 @@ class MoveCounter():
         
     def Display(self):
         fill(255)
-        rect(15,15,100,100)
+        rect(15,15,150,50)
         fill(0)
-        text("Moves: " + str(self.MoveValue),20,20)
+        text("Moves: " + str(self.MoveValue),40,40)
         
         

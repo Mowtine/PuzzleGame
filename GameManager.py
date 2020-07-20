@@ -3,14 +3,16 @@ from MoveCounter import MoveCounter
 
 class GameManager():
     
-    def __init__(self, ):
-        self.playerBoard = Board()
-        self.refBoard = Board()
+    def __init__(self, screenWidth, screenHeight, board1X, board1Y, board1Z, board2X, board2Y, board2Z):
+        self.playerBoard = Board(board1X, board1Y, board1Z)
+        self.refBoard = Board(board2X, board2Y, board2Z)
         self.MoveCounter = MoveCounter()
         
-    def MouseClick(self, squareX, squareY):
-        self.playerBoard.Click(squareX, squareY)
-        self.MoveCounter.Add()
+    def Click(self, x, y):
+        squareX, squareY = self.playerBoard.GetSquare(x, y)
+        if squareX != -1:
+            self.playerBoard.Click(squareX, squareY)
+            self.MoveCounter.Add()
         
     def CheckWin(self):
         if self.playerBoard.Equals(self.refBoard): #Impliment Equals check in board
