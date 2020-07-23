@@ -1,5 +1,6 @@
 from Board import Board 
-from MoveCounter import MoveCounter 
+from MoveCounter import MoveCounter
+from LevelGenerator import LevelGenerator
 
 class GameManager():
     
@@ -7,6 +8,7 @@ class GameManager():
         self.playerBoard = Board(board1X, board1Y, board1Z)
         self.refBoard = Board(board2X, board2Y, board2Z)
         self.MoveCounter = MoveCounter()
+        self.LevelGenerator = LevelGenerator(board2X, board2Y, board2Z)
         
     def Click(self, x, y):
         squareX, squareY = self.playerBoard.GetSquare(x, y)
@@ -23,6 +25,10 @@ class GameManager():
     def Reset(self):
         self.MoveCounter.Reset()
         self.playerBoard.Reset()
+        
+    def GenerateLevel(self, moves):
+        self.Reset()
+        self.refBoard = self.LevelGenerator.GenerateLevel(moves)
         
     def Display(self):
         self.playerBoard.Display()
