@@ -15,20 +15,24 @@ class MoveCounter():
         
         
     def Display(self):
+        xPos=560;
+        
         textAlign(CENTER)
         fill(255, 204, 0)
-        rect(560,10,80,20)
+        rectMode(CENTER)
+        rect(xPos,20,80,20)
         
         fill(0)
         textSize(12)
-        text("Moves: ",600,25)
+        text("Moves: ",xPos,25)
         
         fill(0)
-        rect(560,30,80,50)
+        rectMode(CENTER)
+        rect(xPos,55,80,50)
         
         fill(255, 204, 0)
         textSize(32)
-        text(str(self.MoveValue),600,65)
+        text(str(self.MoveValue),xPos,65)
         
         
         
