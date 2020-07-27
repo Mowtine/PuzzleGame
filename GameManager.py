@@ -8,7 +8,12 @@ class GameManager():
         self.playerBoard = Board(board1X, board1Y, board1Z)
         self.refBoard = Board(board2X, board2Y, board2Z)
         self.MoveCounter = MoveCounter()
+        # TODO: After updating the MoveCounter, add a second counter for the MAX moves (or target moves)
         self.LevelGenerator = LevelGenerator(board2X, board2Y, board2Z)
+        
+        # TODO: Impliment menus!
+        #self.CurrentLevel = 
+        
         
     def Click(self, x, y):
         squareX, squareY = self.playerBoard.GetSquare(x, y)
