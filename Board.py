@@ -7,6 +7,7 @@ class Board():
         for i in range(4):
             row = []
             for j in range(4):
+                # TODO: Convert this to have the distance between the squares scale properly
                 row.append(Square(x + ((z-30)/4+10)*i, y + ((z-30)/4+10)*j, (z-30)/4, (z-30)/4))
             self.board.append(row)
         

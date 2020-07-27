@@ -3,6 +3,7 @@ class MoveCounter():
     
     def __init__(self):
         self.MoveValue = 0
+        # TODO: Add position values to the constructor (this function) of the MoveCounter, and have it display according to that.
         
     def Update(self, value):
         self.MoveValue = value
