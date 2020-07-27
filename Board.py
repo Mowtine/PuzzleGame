@@ -28,7 +28,6 @@ class Board():
                 self.board[i][j].Reset()
                 
     def GetSquare(self, x, y):
-        
         for i in range(4):
             for j in range(4): 
                 if self.board[i][j].IsIn(x, y):

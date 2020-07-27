@@ -1,10 +1,11 @@
 
 class MoveCounter():
     
-    def __init__(self):
+    def __init__(self, xPos, yPos):
         self.MoveValue = 0
-        # TODO: Add position values to the constructor (this function) of the MoveCounter, and have it display according to that.
-        
+        self.xPos = xPos
+        self.yPos = yPos
+
     def Update(self, value):
         self.MoveValue = value
         
@@ -16,25 +17,23 @@ class MoveCounter():
         
         
     def Display(self):
-        xPos=580;
-        yPos=30;
 
         textAlign(CENTER)
         fill(255, 204, 0)
         rectMode(CENTER)
-        rect(xPos,yPos,80,20)
+        rect(self.xPos,self.yPos,80,20)
         
         fill(0)
         textSize(12)
-        text("Moves: ",xPos,yPos+5)
+        text("Moves: ",self.xPos,self.yPos+5)
         
         fill(0)
         rectMode(CENTER)
-        rect(xPos,yPos+35,80,50)
+        rect(self.xPos,self.yPos+35,80,50)
         
         fill(255, 204, 0)
         textSize(32)
-        text(str(self.MoveValue),xPos,yPos+45)
+        text(str(self.MoveValue),self.xPos,self.yPos+45)
         
         
         

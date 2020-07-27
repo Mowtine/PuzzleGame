@@ -47,6 +47,7 @@ def setup():
     size(screenWidth, screenHeight)
     noStroke()
     fill(255)
+    rectMode(CORNER)
     
     gameManager.GenerateLevel(3)
 
