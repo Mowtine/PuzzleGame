@@ -25,7 +25,7 @@ class Square():
         self.colour = "White"
         
     def IsIn(self, x, y):
-        if x > self.x - self.w/2 and x < self.x + self.w/2 and y > self.y and y < self.y + self.h:
+        if x > self.x - self.w/2 and x < self.x + self.w/2 and y > self.y - self.h/2 and y < self.y + self.h/2:
             #TODO charlie: 
             return True
         else:
