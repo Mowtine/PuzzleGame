@@ -26,7 +26,6 @@ class Square():
         
     def IsIn(self, x, y):
         if x > self.x - self.w/2 and x < self.x + self.w/2 and y > self.y - self.h/2 and y < self.y + self.h/2:
-            #TODO charlie: 
             return True
         else:
             return False

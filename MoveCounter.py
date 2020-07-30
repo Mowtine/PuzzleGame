@@ -3,8 +3,8 @@ class MoveCounter():
     
     def __init__(self, xPos, yPos):
         self.MoveValue = 0
-        self.xPos = xPos = 600
-        self.yPos = yPos = 50
+        self.xPos = xPos
+        self.yPos = yPos
 
     def Update(self, value):
         self.MoveValue = value
