@@ -29,11 +29,11 @@ from Board import Board
 screenWidth = 1200
 screenHeight = 600
 
-board1X = 100
-board1Y = 150
+board1X = 180
+board1Y = 175
 board1Z = 400
-board2X = 700
-board2Y = 150
+board2X = 713
+board2Y = 175
 board2Z = 400
 gameManager = GameManager(screenWidth, screenHeight, board1X, board1Y, board1Z, board2X, board2Y, board2Z)
 
@@ -56,7 +56,7 @@ def draw():
     
     global gameManager
     
-    background(51)
+    background(255)
     
     gameManager.Display()
 

@@ -21,6 +21,7 @@ class Board():
         for i in range(4):
             for j in range(4):
                 self.board[i][j].Display()
+                
         
     def Reset(self):
         for i in range(4):
@@ -33,5 +34,6 @@ class Board():
                 if self.board[i][j].IsIn(x, y):
                     return i, j
         return -1, -1
+
         
         
