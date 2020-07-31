@@ -8,7 +8,7 @@ class Board():
             row = []
             for j in range(4):
                 # TODO: Convert this to have the distance between the squares scale properly
-                row.append(Square(x + ((z-30)/4+10)*i, y + ((z-30)/4+10)*j, (z-30)/4, (z-30)/4))
+                row.append(Square(x-(z*9/35)*3/2 + (z*9/35)*i, y-(z*9/35)*3/2 + (z*9/35)*j, z*8/35, z*8/35))
             self.board.append(row)
         
     def Click(self, squareX, squareY):

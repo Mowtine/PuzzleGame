@@ -1,16 +1,18 @@
 from Board import Board 
 from MoveCounter import MoveCounter
 from LevelGenerator import LevelGenerator
+from Timer import Timer
 
 class GameManager():
     
-    def __init__(self, screenWidth, screenHeight, board1X, board1Y, board1Z, board2X, board2Y, board2Z):
+    def __init__(self, screenWidth, screenHeight, board1X, board1Y, board1Z, board2X, board2Y, board2Z, countersX, countersY, countersZ, timerX, timerY, timerZ):
         
         self.currentScene = "level"
         
         self.playerBoard = Board(board1X, board1Y, board1Z)
         self.refBoard = Board(board2X, board2Y, board2Z)
-        self.MoveCounter = MoveCounter(600, 50)
+        self.MoveCounter = MoveCounter(countersX, countersY, countersZ)
+        self.Timer = Timer(timerX, timerY, timerZ)
         # TODO: After updating the MoveCounter, add a second counter for the MAX moves (or target moves)
         self.LevelGenerator = LevelGenerator(board2X, board2Y, board2Z)
         
@@ -46,6 +48,7 @@ class GameManager():
     def Reset(self):
         self.MoveCounter.Reset()
         self.playerBoard.Reset()
+        self.Timer.Reset()
         
     def GenerateLevel(self, moves):
         self.Reset()
@@ -56,6 +59,7 @@ class GameManager():
             self.playerBoard.Display()
             self.refBoard.Display()
             self.MoveCounter.Display()
+            self.Timer.Display()
                 
         elif self.currentScene == "menu":
             pass
