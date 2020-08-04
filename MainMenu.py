@@ -8,19 +8,23 @@ class Mainmenu():
     
     def __init__(self, x, y):
         
-        self.Buttons = []
-        Buttons.append(Button1)
-        Buttons.append(Button2)
-        Buttons.append(Button3)
+        self.ButtonsList = []
+        self.ButtonWidth = 50
+        self.ButtonHeight = 50
         
-        Button1Location = screenWidth/2, screenHeight/2
-        Button2Centre = screenWidth/2 + screenWidth/4
-        Button3Centre = screenWidth/2 - screenWidth/4
+        self.Button1Centre = screenWidth/2, screenHeight/2
+        self.Button2Centre = screenWidth/2 + screenWidth/4, screenHeight/2
+        self.Button3Centre = screenWidth/2 - screenWidth/4, screenHeight/2
         
-        Button1 = rect(screenWidth/2, screenHeight/2, 50, 50, 20)
-        Button2 = rect(screenWidth/2 + screenWidth/4, screenHeight/2, 50, 50, 20)
-        Button3 = rect(screenWidth/2 - screenWidth/4, screenHeight/2, 50, 50, 20)
-     
+        self.Button1 = Button(screenWidth/2, screenHeight/2, ButtonHeight, ButtonWidth, 20)
+        self.Button2 = Button(screenWidth/2 + screenWidth/4, screenHeight/2, ButtonHeight, ButtonWidth, 20)
+        self.Button3 = Button(screenWidth/2 - screenWidth/4, screenHeight/2, ButtonHeight, ButtonWidth, 20)
+        
+        self.ButtonsList.append(Button1Centre)
+        self.ButtonsList.append(Button2Centre)
+        self.ButtonsList.append(Button3Centre)
+         
+    
      
     def Click(self, x, y):
         self.currentScene = "menu"
@@ -38,9 +42,9 @@ class Mainmenu():
                 
     def GetButton(self, x, y):
         
-        for Button in Buttons:
+        for Button in self.ButtonsList:
         if x < Button + ButtonWidth/2, x > Button - ButtonWidth/2, y > Button - ButtonHeight/2, y < Button + ButtonHeight/2
-        #run button function
+        return Button
     
         elif
         continue
