@@ -7,11 +7,9 @@ class Button():
         self.y = y
         self.h = h
         self.w = w
-        self.Text = "Button"
+        self.Text = i
         
-    def Text(self):
-        textAlign(CENTER)
-        text(self.Text,self.x - self.w/2,self.y - self.h/2)
+
         
     def Display(self):
         if self.colour == "Yellow":
@@ -19,6 +17,9 @@ class Button():
         else:
             fill(0)
         rect(self.x, self.y, self.h, self.w,15)
+        
+        textAlign(CENTER)
+        text(self.Text,self.x - self.w/2,self.y - self.h/2)
         
         
     def IsIn(self, x, y):
