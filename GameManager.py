@@ -2,6 +2,7 @@ from Board import Board
 from MoveCounter import MoveCounter
 from LevelGenerator import LevelGenerator
 from Timer import Timer
+from MainMenu import MainMenu
 
 class GameManager():
     
@@ -15,6 +16,8 @@ class GameManager():
         self.Timer = Timer(timerX, timerY, timerZ)
         # TODO: After updating the MoveCounter, add a second counter for the MAX moves (or target moves)
         self.LevelGenerator = LevelGenerator(board2X, board2Y, board2Z)
+        
+        self.mainMenu = MainMenu(screenWidth/2, screenHeight/2, 50, 50)
         
         
     def Click(self, x, y):
@@ -62,7 +65,7 @@ class GameManager():
             self.Timer.Display()
                 
         elif self.currentScene == "menu":
-            pass
+            self.mainMenu.Display()
             
             
         elif self.currentScene == "settings":
