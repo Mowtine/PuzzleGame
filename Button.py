@@ -17,7 +17,7 @@ class Button():
         else:
             fill(0)
         
-        rect(self.x, self.y, self.h, self.w, 15)
+        rect(self.x, self.y, self.w, self.h, 15)
         
         textAlign(CENTER)
         fill(0)

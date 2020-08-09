@@ -19,7 +19,7 @@ class Square():
             fill(255, 204, 0)
         else:
             fill(0)
-        rect(self.x, self.y, self.h, self.w,15)
+        rect(self.x, self.y, self.w, self.h,15)
         
     def Reset(self):
         self.colour = "Yellow"
