@@ -1,15 +1,14 @@
 # Button class! It needs Display, Click, IsIn functions, and is exactly like a square class otherwise
 class Button():
     
-    def __init__(self, x, y, h, w):
+    def __init__(self, x, y, h, w, text, value):
         self.colour = "Yellow"
         self.x = x
         self.y = y
         self.h = h
         self.w = w
-        self.Text = "Button"
-        
-
+        self.Text = text
+        self.Value = value
         
     def Display(self):
         if self.colour == "Yellow":

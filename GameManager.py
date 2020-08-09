@@ -8,7 +8,7 @@ class GameManager():
     
     def __init__(self, screenWidth, screenHeight, board1X, board1Y, board1Z, board2X, board2Y, board2Z, countersX, countersY, countersZ, timerX, timerY, timerZ):
         
-        self.currentScene = "level"
+        self.currentScene = "menu"
         
         self.playerBoard = Board(board1X, board1Y, board1Z)
         self.refBoard = Board(board2X, board2Y, board2Z)
@@ -18,6 +18,12 @@ class GameManager():
         self.LevelGenerator = LevelGenerator(board2X, board2Y, board2Z)
         
         self.mainMenu = MainMenu(screenWidth/2, screenHeight/2, 50, 50)
+        self.levelComplete = MainMenu(screenWidth/2, screenHeight/2, 50, 50)
+
+                
+        self.resetList =[self.playerBoard, self.refBoard, self.MoveCounter, self.Timer, self.LevelGenerator]
+        
+        
         
         
     def Click(self, x, y):
@@ -27,9 +33,16 @@ class GameManager():
                 self.playerBoard.Click(squareX, squareY)
                 self.MoveCounter.Add()
                 
+                if self.CheckWin():
+                    self.ChangeScene("level complete")
+                
         elif self.currentScene == "menu":
-            pass
+            button = self.mainMenu.GetButton(x, y)
+            if button is not None:
+                self.ChangeScene(button.Value)
             
+        elif self.currentScene == "level complete":
+            pass
             
         elif self.currentScene == "settings":
             pass
@@ -39,7 +52,11 @@ class GameManager():
             self.currentScene = "menu"
             
     def ChangeScene(self, newScene):
-        # Add extra functionality
+        if "complete" not in newScene:
+            for object in self.resetList:
+                object.Reset()
+        else:
+            self.Timer.Pause()
         self.currentScene = newScene
         
     def CheckWin(self):
@@ -59,6 +76,7 @@ class GameManager():
         
     def Display(self):
         if self.currentScene == "level":
+            
             self.playerBoard.Display()
             self.refBoard.Display()
             self.MoveCounter.Display()
@@ -67,7 +85,15 @@ class GameManager():
         elif self.currentScene == "menu":
             self.mainMenu.Display()
             
-            
+        elif self.currentScene == "level complete":
+            self.playerBoard.Display()
+            self.refBoard.Display()
+            self.MoveCounter.Display()
+            self.Timer.Display()
+            # Gray out what is behind it
+            self.levelComplete.Display()
+        
+        
         elif self.currentScene == "settings":
             pass
             

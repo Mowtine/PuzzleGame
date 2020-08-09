@@ -5,10 +5,15 @@ class Timer():
         self.startTime = 0
         self.xPos = xPos
         self.yPos = yPos
+        self.pause = False
+        self.lastValue = 0.0
         
     def Reset(self):
         self.startTime = millis()
+        self.pause = False
         
+    def Pause(self):
+        self.pause = True
         
     def Display(self):
         
@@ -35,4 +40,7 @@ class Timer():
         #movevalue number
         fill(255, 204, 0)
         textSize(32)
+        if self.pause:
+            self.startTime = millis() - self.lastValue
+        self.lastValue = millis()-self.startTime
         text('%.1f' % ((millis()-self.startTime)/1000.0),self.xPos+48,self.yPos+11) # Where this came from: https://stackoverflow.com/questions/6149006/display-a-float-with-two-decimal-places-in-python

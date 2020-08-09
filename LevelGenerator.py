@@ -5,8 +5,11 @@ class LevelGenerator():
     
     def __init__(self, board2X, board2Y, board2Z):
         self.board = Board(board2X, board2Y, board2Z)
+        self.currentMoves = 1
         
     def GenerateLevel(self, moves):
+        
+        self.currentMoves = moves
         
         self.board.Reset()
         xs = []
@@ -26,3 +29,6 @@ class LevelGenerator():
         
         return self.board
         
+    def Reset(self):
+        
+        self.GenerateLevel(self.currentMoves)

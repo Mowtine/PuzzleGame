@@ -35,5 +35,10 @@ class Board():
                     return i, j
         return -1, -1
 
-        
+    def Equals(self, otherBoard):
+        for i in range(4):
+            for j in range(4):
+                if not self.board[i][j].colour == otherBoard.board[i][j].colour:
+                    return False
+        return True
         

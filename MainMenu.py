@@ -12,9 +12,9 @@ class MainMenu():
         self.ButtonWidth = 50
         self.ButtonHeight = 50
         
-        self.Button1 = Button(x, y, self.ButtonHeight, self.ButtonWidth)
-        self.Button2 = Button(x + x/4, y, self.ButtonHeight, self.ButtonWidth)
-        self.Button3 = Button(x - x/4, y, self.ButtonHeight, self.ButtonWidth)
+        self.Button1 = Button(x, y, self.ButtonHeight, self.ButtonWidth, "Arcade", "arcade")
+        self.Button2 = Button(x + x/4, y, self.ButtonHeight, self.ButtonWidth, "Level select", "level")
+        self.Button3 = Button(x - x/4, y, self.ButtonHeight, self.ButtonWidth, "Settings", "settings")
         
         self.ButtonsList.append(self.Button1)
         self.ButtonsList.append(self.Button2)
