@@ -1,10 +1,7 @@
-# Main menu is basically like a Board class - copy Board.py It needs a variable which is a list of buttons. 
-#The buttons will be added manually. It will need a GetButton, Click and Display
-
 from Button import Button
      
      
-class MainMenu():
+class LevelSelect():
     
     def __init__(self, x, y, w, h):
         
@@ -12,14 +9,16 @@ class MainMenu():
         self.ButtonWidth = 50
         self.ButtonHeight = 50
         
-        # TASK 1: Change these variables:
-        self.Button1 = Button(x, y, self.ButtonHeight, self.ButtonWidth, "Arcade", "level", 34)
-        self.Button2 = Button(x + x/4, y, self.ButtonHeight, self.ButtonWidth, "Level select", "select menu", 34)
-        self.Button3 = Button(x - x/4, y, self.ButtonHeight, self.ButtonWidth, "Settings", "settings", 34)
+        # TASK 2: Change and add buttons for each level: Level Valunes: "1.1 level"
+        self.Button1 = Button(x, y, self.ButtonHeight, self.ButtonWidth, "1.0 level", "1", 34)
+        self.Button2 = Button(x + x/4, y, self.ButtonHeight, self.ButtonWidth, "2.1 level", "2.1", 34)
+        self.Button3 = Button(x - x/4, y, self.ButtonHeight, self.ButtonWidth, "2.2 level", "2.2", 34)
+        # Add buttons
         
         self.ButtonsList.append(self.Button1)
         self.ButtonsList.append(self.Button2)
         self.ButtonsList.append(self.Button3)
+        # Add them to the list
         
     def Display(self):
         for Button in self.ButtonsList:
