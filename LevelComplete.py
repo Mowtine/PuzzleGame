@@ -4,23 +4,27 @@ from Button import Button
 class LevelComplete():
     
     def __init__(self, x, y, w, h):
+       
         
+
         self.ButtonsList = []
-        self.ButtonWidth = 50
-        self.ButtonHeight = 50
+        self.ButtonWidth = 200
+        self.ButtonHeight = 100
         
         # TASK 3: Make a "Next" (dw about for now) and "main menu" button. 
-        self.Button1 = Button(x, y, self.ButtonHeight, self.ButtonWidth, "1.0 level", "1", 34)
-        self.Button2 = Button(x + x/4, y, self.ButtonHeight, self.ButtonWidth, "menu", "2.1", 34)
-        self.Button3 = Button(x - x/4, y, self.ButtonHeight, self.ButtonWidth, "2.2 level", "2.2", 34)
-        # Add buttons
+        self.Button1 = Button(x - x/2, y, self.ButtonHeight, self.ButtonWidth, "next", "1", 34)
+        self.Button2 = Button(x + x/2, y, self.ButtonHeight, self.ButtonWidth, "menu", "2.1", 34)
+
         
         self.ButtonsList.append(self.Button1)
         self.ButtonsList.append(self.Button2)
-        self.ButtonsList.append(self.Button3)
-        # Add them to the list
+
         
     def Display(self):
+        fill(0,0,0,200);
+        rect(600,20,1200,3000) 
+    
+        
         for Button in self.ButtonsList:
             Button.Display()
                 

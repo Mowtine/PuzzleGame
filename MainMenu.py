@@ -9,25 +9,33 @@ class MainMenu():
     def __init__(self, x, y, w, h):
         
         self.ButtonsList = []
-        self.ButtonWidth = 50
-        self.ButtonHeight = 50
+        self.ButtonWidth = 300
+        self.ButtonHeight = 200
         
         # TASK 1: Change these variables:
-        self.Button1 = Button(x, y, self.ButtonHeight, self.ButtonWidth, "Arcade", "level", 34)
-        self.Button2 = Button(x + x/4, y, self.ButtonHeight, self.ButtonWidth, "Level select", "select menu", 34)
-        self.Button3 = Button(x - x/4, y, self.ButtonHeight, self.ButtonWidth, "Settings", "settings", 34)
+        self.Button1 = Button(x, y - y/1.6, self.ButtonHeight, self.ButtonWidth, "Arcade", "level", 40)
+        self.Button2 = Button(x, y, self.ButtonHeight, self.ButtonWidth, "Level select", "select menu", 40)
+        self.Button3 = Button(x, y + y/1.6, self.ButtonHeight, self.ButtonWidth, "Settings", "settings", 40)
         
         self.ButtonsList.append(self.Button1)
         self.ButtonsList.append(self.Button2)
         self.ButtonsList.append(self.Button3)
         
     def Display(self):
+        background(0)
+        
         for Button in self.ButtonsList:
             Button.Display()
+
                 
     def GetButton(self, x, y):
         for Button in self.ButtonsList:
             if Button.IsIn(x, y):
                 return Button
         return None
+    
+
+    
+
+
     
