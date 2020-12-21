@@ -10,7 +10,7 @@ class LevelSelect():
         self.ButtonHeight = 120
         
         # TASK 2: Change and add buttons for each level: Level Valunes: "1.1 level"
-        self.Button1 = Button(x, 180, self.ButtonHeight, self.ButtonWidth, "1.1", "1.1", 26)
+        self.Button1 = Button(x, 180, self.ButtonHeight, self.ButtonWidth, "1.1", "1.1 level", 26)
         self.Button2 = Button(x + (x/2+20), 180, self.ButtonHeight, self.ButtonWidth, "1.2", "1.2", 26)
         self.Button3 = Button(x - (x/2+20), 180, self.ButtonHeight, self.ButtonWidth, "1.0", "1", 26)
         self.Button4 = Button(x, 340, self.ButtonHeight, self.ButtonWidth, "2.1", "2.1", 26)

@@ -12,8 +12,8 @@ class LevelComplete():
         self.ButtonHeight = 100
         
         # TASK 3: Make a "Next" (dw about for now) and "main menu" button. 
-        self.Button1 = Button(x - x/2, y, self.ButtonHeight, self.ButtonWidth, "next", "1", 34)
-        self.Button2 = Button(x + x/2, y, self.ButtonHeight, self.ButtonWidth, "menu", "2.1", 34)
+        self.Button1 = Button(x - x/2, y, self.ButtonHeight, self.ButtonWidth, "Next", "next level", 34)
+        self.Button2 = Button(x + x/2, y, self.ButtonHeight, self.ButtonWidth, "Main Menu", "menu", 34)
 
         
         self.ButtonsList.append(self.Button1)

@@ -12,6 +12,8 @@ class GameManager():
         
         self.currentScene = "menu"
         
+        self.currentLevel = 0
+        
         self.playerBoard = Board(board1X, board1Y, board1Z)
         self.refBoard = Board(board2X, board2Y, board2Z)
         self.MoveCounter = MoveCounter(countersX, countersY, countersZ)
@@ -30,14 +32,14 @@ class GameManager():
         
         
     def Click(self, x, y):
-        if self.currentScene == "level":
+        if "level" in self.currentScene:
             squareX, squareY = self.playerBoard.GetSquare(x, y)
             if squareX != -1:
                 self.playerBoard.Click(squareX, squareY)
                 self.MoveCounter.Add()
                 
                 if self.CheckWin():
-                    self.ChangeScene("level complete")
+                    self.ChangeScene("complete")
                 
         elif self.currentScene == "menu":
             button = self.mainMenu.GetButton(x, y)
@@ -49,9 +51,12 @@ class GameManager():
             if button is not None:
                 self.ChangeScene(button.Value)
             
-        elif self.currentScene == "level complete":
+        elif self.currentScene == "complete":
             button = self.levelCompleteMenu.GetButton(x, y)
             if button is not None:
+                # IF we clicked on "next level" then:
+                #     Check what the current level is (self.currentLevel), and increase it by 1. 
+                #     Change level to that -> self.ChangeScene("2.2 level")
                 self.ChangeScene(button.Value)
             
         elif self.currentScene == "settings":
@@ -68,7 +73,10 @@ class GameManager():
         else:
             self.Timer.Pause()
         if "level" in newScene:
-            pass
+                self.currentLevel = int(newScene[0])
+                self.GenerateLevel(self.currentLevel)
+            
+            
         
         self.currentScene = newScene
         
@@ -88,7 +96,7 @@ class GameManager():
         self.refBoard = self.LevelGenerator.GenerateLevel(moves)
         
     def Display(self):
-        if self.currentScene == "level":
+        if "level" in self.currentScene:
             
             self.playerBoard.Display()
             self.refBoard.Display()
@@ -101,7 +109,7 @@ class GameManager():
         elif self.currentScene == "select menu":
             self.levelSelectMenu.Display()
             
-        elif self.currentScene == "level complete":
+        elif self.currentScene == "complete":
             self.playerBoard.Display()
             self.refBoard.Display()
             self.MoveCounter.Display()
