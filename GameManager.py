@@ -53,12 +53,13 @@ class GameManager():
             
         elif self.currentScene == "complete":
             button = self.levelCompleteMenu.GetButton(x, y)
-            if button is self.Button1:
-                self.currentLevel +=1
-                self.ChangeScene("self.currentLevel"+"level")
+            if button is not None:
+                if button.Value == "next level":
+                    self.currentLevel +=1
+                    self.ChangeScene(str(self.currentLevel)+" level")
             
-            elif button is self.Button2:        
-                self.ChangeScene(button.Value)
+                else:       
+                    self.ChangeScene(button.Value)
                 
         #I need to add a value to the button which makes it go to next level 
         # IF we clicked on "next level" then:
@@ -77,7 +78,7 @@ class GameManager():
                 object.Reset()
         else:
             self.Timer.Pause()
-        if "1 level" in newScene:
+        if "level" in newScene:
                 self.currentLevel = int(newScene[0])
                 self.GenerateLevel(self.currentLevel)
             
