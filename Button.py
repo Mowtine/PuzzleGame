@@ -19,7 +19,7 @@ class Button():
         
         rect(self.x, self.y, self.w, self.h, 15)
         
-        textAlign(CENTER)
+        textAlign(CENTER, CENTER)
         fill(0)
         loadFont("movesfont2.vlw")
         textSize(self.TextSize)
