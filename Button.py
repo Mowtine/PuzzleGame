@@ -12,17 +12,23 @@ class Button():
         self.TextSize = vartextSize
         
     def Display(self):
+        
+        # Outline
+        fill(128, 102, 0)
+        rect(self.x, self.y + 5, self.w + 7, self.h + 7, 20)
+        
+        # Shadow
+        fill(212, 169, 0)
+        rect(self.x, self.y, self.w + 7, self.h + 7, 20)
+        
         if self.colour == "Yellow":
             fill(255, 204, 0)
         else:
             fill(0)
         rect(self.x, self.y, self.w, self.h, 15)
         
-        
-        
-        if self.w == 250 and self.h == 90:
-            fill(242, 194, 0)
-            rect(self.x, self.y + self.h/4, self.w, self.h/2,0,0,15,15)
+        fill(242, 194, 0)
+        rect(self.x, self.y + self.h/4, self.w, self.h/2,0,0,15,15)
 
         textAlign(CENTER, CENTER)
         fill(0)

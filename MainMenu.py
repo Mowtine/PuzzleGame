@@ -25,7 +25,7 @@ class MainMenu():
         bg = loadImage("120c75f7e68d316799cbc5ff9b58f4e2.jpg")
         background(bg)
         
-
+        # Background art
         fill(105)
         rect(253, 403, 400, 465, 40)
         
@@ -38,54 +38,16 @@ class MainMenu():
         fill(227, 227, 227)
         rect(250, 400, 370, 435, 20)
         
-        
-        
-        
-        #fill(255)
-        #rect(250, 180, 307, 107, 20)
-        
-        fill(128, 102, 0)
-        rect(250, 315, 257, 97, 20)
-        
-        fill(128, 102, 0)
-        rect(250, 425, 257, 97, 20)
-        
-        fill(128, 102, 0)
-        rect(250, 535, 257, 97, 20)
-
-        
-        
-        
-        
         fill(105)
-        rect(250, 175, 307, 107, 20)
-        
-        fill(212, 169, 0)
-        rect(250, 310, 257, 97, 20)
-        
-        fill(212, 169, 0)
-        rect(250, 420, 257, 97, 20)
-        
-        fill(212, 169, 0)
-        rect(250, 530, 257, 97, 20)
-
-
-        
-        
+        rect(250, 175, 307, 107, 20)    
         
         fill(0)
         rect(250, 175, 300, 100, 15)
-        
-    
-    
-        
 
 
         for Button in self.ButtonsList:
             Button.Display()
-            
-        font = loadFont("font1.vlw")
-        textFont(font)
+        
         fill(255)
         text('Main Menu', 250, 175)
 
