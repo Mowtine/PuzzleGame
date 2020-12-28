@@ -28,7 +28,7 @@ class Timer():
         rect(self.xPos-40,self.yPos,85,50,7,0,0,7)
         
         loadFont("movesfont2.vlw")
-        textSize(24)
+        textSize(25)
     
         fill(0)
         text("Time: ",self.xPos-33,self.yPos+8)

@@ -78,7 +78,7 @@ class GameManager():
                 object.Reset()
         else:
             self.Timer.Pause()
-        if "level" in newScene:
+        if "1 level" in newScene:
                 self.currentLevel = int(newScene[0])
                 self.GenerateLevel(self.currentLevel)
             

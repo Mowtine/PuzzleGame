@@ -30,7 +30,7 @@ class MoveCounter():
         rect(self.xPos-35,self.yPos,100,50,7,0,0,7)
         
         loadFont("movesfont2.vlw")
-        textSize(24)
+        textSize(25)
     
         fill(0)
         text("Moves: ",self.xPos-30,self.yPos+8)

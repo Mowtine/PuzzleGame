@@ -16,12 +16,18 @@ class Button():
             fill(255, 204, 0)
         else:
             fill(0)
-        
         rect(self.x, self.y, self.w, self.h, 15)
         
+        
+        
+        if self.w == 250 and self.h == 90:
+            fill(242, 194, 0)
+            rect(self.x, self.y + self.h/4, self.w, self.h/2,0,0,15,15)
+
         textAlign(CENTER, CENTER)
         fill(0)
-        loadFont("movesfont2.vlw")
+        font = loadFont("font1.vlw")
+        textFont(font)
         textSize(self.TextSize)
         text(self.Text,self.x ,self.y)
         
