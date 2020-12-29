@@ -12,20 +12,20 @@ class LevelGenerator():
         self.currentMoves = moves
         
         self.board.Reset()
-        xs = []
-        ys = []
+        xys = []
+        if moves > 16:
+            moves = 16
         for i in range(moves):
             
             x = random.randrange(0,3)
             y = random.randrange(0,3)
             
-            while x in xs or y in ys:
+            while [x,y] in xys:
                 x = random.randrange(0,4)
                 y = random.randrange(0,4)
             
             self.board.Click(x,y)
-            xs.append(x)
-            ys.append(y)
+            xys.append([x,y])
         
         return self.board
         
