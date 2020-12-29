@@ -22,7 +22,7 @@ class MainMenu():
         self.ButtonsList.append(self.Button3)
         
     def Display(self):
-        bg = loadImage("120c75f7e68d316799cbc5ff9b58f4e2.jpg")
+        bg = loadImage("bg3.jpg")
         background(bg)
         
         # Background art
