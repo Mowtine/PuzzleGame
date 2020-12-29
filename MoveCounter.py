@@ -3,8 +3,8 @@ class MoveCounter():
     
     def __init__(self, xPos, yPos, zPos):
         self.MoveValue = 0
-        self.xPos = xPos
-        self.yPos = yPos
+        self.xPos = xPos+250
+        self.yPos = yPos+200
 
     def Update(self, value):
         self.MoveValue = value
@@ -33,7 +33,7 @@ class MoveCounter():
         textSize(25)
     
         fill(0)
-        text("Moves: ",self.xPos-30,self.yPos+8)
+        text("Moves: ",self.xPos-32,self.yPos+10)
         
         #black side
         fill(0)

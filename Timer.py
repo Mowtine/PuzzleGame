@@ -3,8 +3,8 @@ class Timer():
     
     def __init__(self, xPos, yPos, zPos):
         self.startTime = 0
-        self.xPos = xPos
-        self.yPos = yPos
+        self.xPos = xPos-5
+        self.yPos = yPos+111
         self.pause = False
         self.lastValue = 0.0
         

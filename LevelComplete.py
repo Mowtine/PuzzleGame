@@ -24,7 +24,6 @@ class LevelComplete():
         fill(0,0,0,200);
         rect(600,20,1200,3000) 
     
-        
         for Button in self.ButtonsList:
             Button.Display()
                 

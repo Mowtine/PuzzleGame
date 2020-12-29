@@ -5,6 +5,8 @@ from Timer import Timer
 from MainMenu import MainMenu
 from LevelSelect import LevelSelect
 from LevelComplete import LevelComplete
+from Button import Button
+
 
 class GameManager():
     
@@ -14,6 +16,7 @@ class GameManager():
         
         self.currentLevel = 0
         
+        self.BackButton = Button(430, 40, 50, 110, "Back", "menu", 30)
         self.playerBoard = Board(board1X, board1Y, board1Z)
         self.refBoard = Board(board2X, board2Y, board2Z)
         self.MoveCounter = MoveCounter(countersX, countersY, countersZ)
@@ -33,7 +36,14 @@ class GameManager():
         
     def Click(self, x, y):
         if "level" in self.currentScene:
+            
+            clicked = self.BackButton.IsIn(x, y)
+            if clicked:
+                self.ChangeScene(self.BackButton.Value)
+                return
+            
             squareX, squareY = self.playerBoard.GetSquare(x, y)
+            
             if squareX != -1:
                 self.playerBoard.Click(squareX, squareY)
                 self.MoveCounter.Add()
@@ -108,7 +118,8 @@ class GameManager():
             self.refBoard.Display()
             self.MoveCounter.Display()
             self.Timer.Display()
-                
+            self.BackButton.Display()     
+                 
         elif self.currentScene == "menu":
             self.mainMenu.Display()
             
