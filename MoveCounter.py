@@ -3,8 +3,8 @@ class MoveCounter():
     
     def __init__(self, xPos, yPos, zPos):
         self.MoveValue = 0
-        self.xPos = xPos+250
-        self.yPos = yPos+200
+        self.xPos = xPos+235.5
+        self.yPos = yPos+210
 
     def Update(self, value):
         self.MoveValue = value
@@ -18,26 +18,25 @@ class MoveCounter():
         
     def Display(self):
         
-        
         #move counter starts here 
         #Yellow Outline
         fill(255, 204, 0)
-        rect(self.xPos+47.5,self.yPos,74,50,0,7,7,0)
+        rect(self.xPos+47.5,self.yPos,94,50,0,7,7,0)
     
         #Yellow side
         textAlign(CENTER)
         fill(255, 204, 0)
-        rect(self.xPos-35,self.yPos,100,50,7,0,0,7)
+        rect(self.xPos-40,self.yPos,85,50,7,0,0,7)
         
         loadFont("movesfont2.vlw")
-        textSize(25)
+        textSize(23)
     
         fill(0)
-        text("Moves: ",self.xPos-32,self.yPos+10)
+        text("Moves:",self.xPos-38,self.yPos+8)
         
         #black side
         fill(0)
-        rect(self.xPos+48,self.yPos,70,48,0,7,7,0)
+        rect(self.xPos+48,self.yPos,90,48,0,7,7,0)
         
         #movevalue number
         fill(255, 204, 0)
