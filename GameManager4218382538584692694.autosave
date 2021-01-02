@@ -5,18 +5,15 @@ from Timer import Timer
 from MainMenu import MainMenu
 from LevelSelect import LevelSelect
 from LevelComplete import LevelComplete
-from Button import Button
-
 
 class GameManager():
     
     def __init__(self, screenWidth, screenHeight, board1X, board1Y, board1Z, board2X, board2Y, board2Z, countersX, countersY, countersZ, timerX, timerY, timerZ):
         
         self.currentScene = "menu"
-        self.levels = [1,2,2,2,3,2,3,2,2,3,3,3,3,2,3,4,3,3,4,3,3,3,3,3,3,4,4,4,3,3,4,3,4,4,4,3,4,3,4,4,4,4,3,4,4,4,4,4,4,5,5,4,5,5,4,4,5,5,5,5,5,5,5,5,5,4,5,4,5,5,5,5,5,6,6,6,5,6,6,6,5,7,6,7,7,7,9]
-        self.currentLevel = self.levels[0]
         
-        self.BackButton = Button(430, 40, 50, 110, "Back", "menu", 30)
+        self.currentLevel = 0
+        
         self.playerBoard = Board(board1X, board1Y, board1Z)
         self.refBoard = Board(board2X, board2Y, board2Z)
         self.MoveCounter = MoveCounter(countersX, countersY, countersZ)
@@ -27,8 +24,8 @@ class GameManager():
         self.mainMenu = MainMenu(screenWidth/2, screenHeight/2, 50, 50)
         self.levelSelectMenu = LevelSelect(screenWidth/2, screenHeight/2, 50, 50)
         self.levelCompleteMenu = LevelComplete(screenWidth/2, screenHeight/2, 50, 50)
-        
-        
+
+                
         self.resetList =[self.playerBoard, self.refBoard, self.MoveCounter, self.Timer, self.LevelGenerator]
         
         
@@ -36,14 +33,7 @@ class GameManager():
         
     def Click(self, x, y):
         if "level" in self.currentScene:
-            
-            clicked = self.BackButton.IsIn(x, y)
-            if clicked:
-                self.ChangeScene(self.BackButton.Value)
-                return
-            
             squareX, squareY = self.playerBoard.GetSquare(x, y)
-            
             if squareX != -1:
                 self.playerBoard.Click(squareX, squareY)
                 self.MoveCounter.Add()
@@ -62,10 +52,11 @@ class GameManager():
                 self.ChangeScene(button.Value)
             
         elif self.currentScene == "complete":
+            print("Clicked with self.level=" + str(self.currentLevel))
             button = self.levelCompleteMenu.GetButton(x, y)
             if button is not None:
                 if button.Value == "next level":
-                    self.currentLevel = currentLevel = self.levels[+1]
+                    self.currentLevel +=1
                     self.ChangeScene(str(self.currentLevel)+" level")
             
                 else:       
@@ -88,7 +79,7 @@ class GameManager():
                 object.Reset()
         else:
             self.Timer.Pause()
-        if "level" in newScene:
+        if "level 1" in newScene:
                 self.currentLevel = int(newScene[0])
                 self.GenerateLevel(self.currentLevel)
             
@@ -118,8 +109,7 @@ class GameManager():
             self.refBoard.Display()
             self.MoveCounter.Display()
             self.Timer.Display()
-            self.BackButton.Display()     
-                 
+                
         elif self.currentScene == "menu":
             self.mainMenu.Display()
             
