@@ -2,14 +2,20 @@
 class Timer():
     
     def __init__(self, xPos, yPos, zPos):
-        self.startTime = 0
+        self.endTime = 0
         self.xPos = xPos-15
         self.yPos = yPos+111
         self.pause = False
         self.lastValue = 0.0
         
-    def Reset(self):
-        self.startTime = millis()
+    def Increment(self, extraTime):
+        self.endTime = self.endTime + extraTime*1000
+        
+        self.pause = False
+        
+    def Reset(self, extraTime):
+        self.endTime = millis() + extraTime*1000
+        
         self.pause = False
         
     def Pause(self):
@@ -46,9 +52,9 @@ class Timer():
             textSize(28)
         
         if self.pause:
-            self.startTime = millis() - self.lastValue
-        self.lastValue = millis()-self.startTime
-        text('%.1f' % ((millis()-self.startTime)/1000.0),self.xPos+48,self.yPos+11) # Where this came from: https://stackoverflow.com/questions/6149006/display-a-float-with-two-decimal-places-in-python
+            self.endTime = millis() - self.lastValue
+        self.lastValue = millis()-self.endTime
+        text('%.1f' % ((self.endTime-millis())/1000.0),self.xPos+48,self.yPos+11) # Where this came from: https://stackoverflow.com/questions/6149006/display-a-float-with-two-decimal-places-in-python
         
 
         if self.lastValue > 999900:
