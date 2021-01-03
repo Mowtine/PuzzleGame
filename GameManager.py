@@ -13,8 +13,8 @@ class GameManager():
     def __init__(self, screenWidth, screenHeight, board1X, board1Y, board1Z, board2X, board2Y, board2Z, countersX, countersY, countersZ, timerX, timerY, timerZ):
         
         self.currentScene = "menu"
-        self.levels = [1,2,2,2,3,2,3,2,2,3,3,3,3,2,3,4,3,3,4,3,3,3,3,3,3,4,4,4,3,3,4,3,4,4,4,3,4,3,4,4,4,4,3,4,4,4,4,4,4,5,5,4,5,5,4,4,5,5,5,5,5,5,5,5,5,4,5,4,5,5,5,5,5,6,6,6,5,6,6,6,5,7,6,7,7,7,9]
-        self.currentLevel = self.levels[0]
+        self.arcadeLevels = [1,2,2,2,3,2,3,2,2,3,3,3,3,2,3,4,3,3,4,3,3,3,3,3,3,4,4,4,3,3,4,3,4,4,4,3,4,3,4,4,4,4,3,4,4,4,4,4,4,5,5,4,5,5,4,4,5,5,5,5,5,5,5,5,5,4,5,4,5,5,5,5,5,6,6,6,5,6,6,6,5,7,6,7,7,7,9]
+        self.currentLevel = 0
         
         self.BackButton = Button(430, 40, 50, 110, "Back", "menu", 30)
         self.playerBoard = Board(board1X, board1Y, board1Z)
@@ -25,7 +25,7 @@ class GameManager():
         self.LevelGenerator = LevelGenerator(board2X, board2Y, board2Z)
         
         self.mainMenu = MainMenu(screenWidth/2, screenHeight/2, 50, 50)
-        self.levelSelectMenu = LevelSelect(screenWidth/2, screenHeight/2, 50, 50)
+        self.levelselectMenu = LevelSelect(screenWidth/2, screenHeight/2, 50, 50)
         self.levelCompleteMenu = LevelComplete(screenWidth/2, screenHeight/2, 50, 50)    
         
         self.resetList =[self.playerBoard, self.refBoard, self.MoveCounter, self.LevelGenerator]
@@ -65,8 +65,8 @@ class GameManager():
             button = self.levelCompleteMenu.GetButton(x, y)
             if button is not None:
                 if button.Value == "next level":
-                    self.currentLevel = currentLevel = self.levels[+1]
-                    self.ChangeScene(str(self.currentLevel)+" level")
+                    self.currentLevel +=1
+                    self.ChangeScene(str(self.arcadeLevels[self.currentLevel])+" level")
             
                 else:       
                     self.ChangeScene(button.Value)
@@ -86,12 +86,11 @@ class GameManager():
         if "complete" not in newScene:
             for object in self.resetList:
                 object.Reset()
-            self.Timer.Reset(self.currentLevel*5)
+            self.Timer.Reset(self.arcadeLevels[self.currentLevel]*5)
         else:
             self.Timer.Pause()
         if "level" in newScene:
-                self.currentLevel = int(newScene[0])
-                self.GenerateLevel(self.currentLevel)
+                self.GenerateLevel(int(newScene[0]))
             
             
         
@@ -106,7 +105,7 @@ class GameManager():
     def Reset(self):
         self.MoveCounter.Reset()
         self.playerBoard.Reset()
-        self.Timer.Reset(self.currentLevel*5)
+        self.Timer.Reset(self.arcadeLevels[self.currentLevel]*5)
         
     def GenerateLevel(self, moves):
         self.Reset()
