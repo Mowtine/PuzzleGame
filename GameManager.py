@@ -29,7 +29,7 @@ class GameManager():
         self.levelCompleteMenu = LevelComplete(screenWidth/2, screenHeight/2, 50, 50)
 
                 
-        self.resetList =[self.playerBoard, self.refBoard, self.MoveCounter, self.Timer, self.LevelGenerator]
+        self.resetList =[self.playerBoard, self.refBoard, self.MoveCounter, self.LevelGenerator]
         
         
         
@@ -86,6 +86,7 @@ class GameManager():
         if "complete" not in newScene:
             for object in self.resetList:
                 object.Reset()
+            self.Timer.Reset(self.currentLevel*5)
         else:
             self.Timer.Pause()
         if "level" in newScene:
@@ -105,7 +106,7 @@ class GameManager():
     def Reset(self):
         self.MoveCounter.Reset()
         self.playerBoard.Reset()
-        self.Timer.Reset()
+        self.Timer.Reset(self.currentLevel*5)
         
     def GenerateLevel(self, moves):
         self.Reset()
