@@ -11,12 +11,12 @@ from ArcadeOver import ArcadeOver
 
 class GameManager():
     
-    def __init__(self, screenWidth, screenHeight, board1X, board1Y, board1Z, board2X, board2Y, board2Z, countersX, countersY, countersZ, timerX, timerY, timerZ):
+    def __init__(self, screenWidth, screenHeight, board1X, board1Y, board1Z, board2X, board2Y, board2Z, countersX, countersY, countersZ, timerX, timerY, timerZ, arcadeLevels, gameLevels):
         
         self.currentScene = "menu"
-        self.arcadeLevels = [1]
+        self.arcadeLevels = arcadeLevels
         self.currentLevel = 0
-        self.gameLevels = []
+        self.gameLevels = gameLevels
         
     
         
@@ -29,7 +29,7 @@ class GameManager():
         self.LevelGenerator = LevelGenerator(board2X, board2Y, board2Z)
         
         self.mainMenu = MainMenu(screenWidth/2, screenHeight/2, 50, 50)
-        self.levelSelectMenu = LevelSelect(screenWidth/2, screenHeight/2, 50, 50)
+        self.levelSelectMenu = LevelSelect(screenWidth/2, screenHeight/2, 50, 50, self.gameLevels)
         self.levelCompleteMenu = LevelComplete(screenWidth/2, screenHeight/2, 50, 50)    
         self.arcadeOverMenu = ArcadeOver(screenWidth/2, screenHeight/2, 50, 50)
         

@@ -19,6 +19,46 @@ countersZ = screenHeight/8
 timeX = screenWidth*3/4
 timeY = screenHeight/20
 timeZ = screenHeight/8
+
+f = open("levels.txt", "r")
+arcadeString = f.readline()  
+stringlevels = arcadeString.split()
+
+arcadeLevels = [int(i) for i in stringlevels]
+
+
+
+first = True
+gameLevels = []
+
+
+
+
+
+for initialLevels in f:
+    if first: 
+        first = False 
+    else:
+                
+        
+        
+        initialLevelslist = initialLevels.strip().split(" ")
+        clicks = []
+        
+        for i in range(0,len(initialLevelslist[1]),2):         
+            x = int(initialLevelslist[1][i])
+            y = int(initialLevelslist[1][i+1])
+            
+            clicks.append([x,y])
+            
+        
+        
+        gameLevels.append([initialLevelslist[0]]+clicks)
+        
+
+        
+
+
 gameManager = GameManager(screenWidth, 
                           screenHeight, 
                           board1X, 
@@ -32,7 +72,9 @@ gameManager = GameManager(screenWidth,
                           countersZ,
                           timeX, 
                           timeY, 
-                          timeZ)
+                          timeZ,
+                          arcadeLevels,
+                          gameLevels)
 
 def setup():
     
@@ -48,44 +90,6 @@ def setup():
     
     gameManager.GenerateLevel(3)
     
-    f = open("levels.txt", "r")
-    arcadeString = f.readline()  
-    stringlevels = arcadeString.split()
-    
-    arcadeLevels = [int(i) for i in stringlevels]
-    
-    gameManager.arcadeLevels = arcadeLevels
-    
-    first = True
-    gameLevels = []
-    
-    
-
-    
-    
-    for initialLevels in f:
-        if first: 
-            first = False 
-        else:
-                    
-            
-            
-            initialLevelslist = initialLevels.strip().split(" ")
-            clicks = []
-            
-            for i in range(0,len(initialLevelslist[1]),2):         
-                x = int(initialLevelslist[1][i])
-                y = int(initialLevelslist[1][i+1])
-                
-                clicks.append([x,y])
-                
-            
-            
-            gameLevels.append([initialLevelslist[0]]+clicks)
-            
-    gameManager.gameLevels = gameLevels
-            
-
 
             
             
