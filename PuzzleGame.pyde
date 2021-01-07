@@ -47,8 +47,21 @@ def setup():
     rectMode(CENTER)
     
     gameManager.GenerateLevel(3)
+    
+    f = open("levels.txt", "r")
+    arcadeString = f.readline()  
+    stringlevels = arcadeString.split()
+    
+    arcadeLevels = [int(i) for i in stringlevels]
+    
+    gameManager.arcadeLevels = arcadeLevels
+    
 
 
+    
+
+    
+    
 def draw():
     
     global gameManager
