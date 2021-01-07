@@ -8,13 +8,17 @@ from LevelComplete import LevelComplete
 from Button import Button
 from ArcadeOver import ArcadeOver
 
+
 class GameManager():
     
     def __init__(self, screenWidth, screenHeight, board1X, board1Y, board1Z, board2X, board2Y, board2Z, countersX, countersY, countersZ, timerX, timerY, timerZ):
         
         self.currentScene = "menu"
-        self.arcadeLevels = [1,2,2,2,3,2,3,2,2,3,3,3,3,2,3,4,3,3,4,3,3,3,3,3,3,4,4,4,3,3,4,3,4,4,4,3,4,3,4,4,4,4,3,4,4,4,4,4,4,5,5,4,5,5,4,4,5,5,5,5,5,5,5,5,5,4,5,4,5,5,5,5,5,6,6,6,5,6,6,6,5,7,6,7,7,7,9]
+        self.arcadeLevels = [1]
         self.currentLevel = 0
+        self.gameLevels = []
+        
+    
         
         self.BackButton = Button(430, 40, 50, 110, "Back", "menu", 30)
         self.playerBoard = Board(board1X, board1Y, board1Z)
