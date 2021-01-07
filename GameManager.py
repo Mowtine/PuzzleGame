@@ -13,7 +13,7 @@ class GameManager():
     def __init__(self, screenWidth, screenHeight, board1X, board1Y, board1Z, board2X, board2Y, board2Z, countersX, countersY, countersZ, timerX, timerY, timerZ):
         
         self.currentScene = "menu"
-        self.arcadeLevels = []
+        self.arcadeLevels = [1,2,2,2,3,2,3,2,2,3,3,3,3,2,3,4,3,3,4,3,3,3,3,3,3,4,4,4,3,3,4,3,4,4,4,3,4,3,4,4,4,4,3,4,4,4,4,4,4,5,5,4,5,5,4,4,5,5,5,5,5,5,5,5,5,4,5,4,5,5,5,5,5,6,6,6,5,6,6,6,5,7,6,7,7,7,9]
         self.currentLevel = 0
         
         self.BackButton = Button(430, 40, 50, 110, "Back", "menu", 30)
@@ -25,7 +25,7 @@ class GameManager():
         self.LevelGenerator = LevelGenerator(board2X, board2Y, board2Z)
         
         self.mainMenu = MainMenu(screenWidth/2, screenHeight/2, 50, 50)
-        self.levelselectMenu = LevelSelect(screenWidth/2, screenHeight/2, 50, 50)
+        self.levelSelectMenu = LevelSelect(screenWidth/2, screenHeight/2, 50, 50)
         self.levelCompleteMenu = LevelComplete(screenWidth/2, screenHeight/2, 50, 50)    
         self.arcadeOverMenu = ArcadeOver(screenWidth/2, screenHeight/2, 50, 50)
         
@@ -72,13 +72,13 @@ class GameManager():
                 else:       
                     self.ChangeScene(button.Value)
         
-        elif self.currentScene == "Arcade":
+        elif self.currentScene == "arcade complete":
             button = self.arcadeOverMenu.GetButton(x, y)
             if button is not None:
+                self.currentLevel = 0
                 self.ChangeScene(button.Value)
                 
-                #if "level" in button.Value:
-                    
+    
                     
                         
         #I need to add a value to the button which makes it go to next level 

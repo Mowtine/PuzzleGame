@@ -27,6 +27,9 @@ class ArcadeOver():
         for Button in self.ButtonsList:
             Button.Display()
                 
+        fill(255)
+        text('Game Over', 250, 40)
+                        
     def GetButton(self, x, y):
         for Button in self.ButtonsList:
             if Button.IsIn(x, y):
