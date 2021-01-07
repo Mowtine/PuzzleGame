@@ -8,20 +8,23 @@ class Timer():
         self.pause = False
         self.lastValue = 0.0
         
+    def OutofTime(self):
+        if self.endTime < millis():
+            return True
+            
     def Increment(self, extraTime):
         self.endTime = self.endTime + extraTime*1000
-        
         self.pause = False
         
     def Reset(self, extraTime):
-        self.endTime = millis() + extraTime*1000
-        
+        self.endTime = millis() + extraTime*1000 
         self.pause = False
         
     def Pause(self):
         self.pause = True
         
     def Display(self):
+        
         
         #move counter starts here 
         #Yellow Outline
@@ -54,7 +57,8 @@ class Timer():
         if self.pause:
             self.endTime = millis() - self.lastValue
         self.lastValue = millis()-self.endTime
-        text('%.1f' % ((self.endTime-millis())/1000.0),self.xPos+48,self.yPos+11) # Where this came from: https://stackoverflow.com/questions/6149006/display-a-float-with-two-decimal-places-in-python
+    
+        text('%.1f' % abs(((self.endTime-millis())/1000.0)),self.xPos+48,self.yPos+11) # Where this came from: https://stackoverflow.com/questions/6149006/display-a-float-with-two-decimal-places-in-python
         
 
         if self.lastValue > 999900:
