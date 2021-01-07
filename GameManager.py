@@ -6,7 +6,7 @@ from MainMenu import MainMenu
 from LevelSelect import LevelSelect
 from LevelComplete import LevelComplete
 from Button import Button
-
+from ArcadeOver import ArcadeOver
 
 
 class GameManager():
@@ -31,6 +31,7 @@ class GameManager():
         self.mainMenu = MainMenu(screenWidth/2, screenHeight/2, 50, 50)
         self.levelselectMenu = LevelSelect(screenWidth/2, screenHeight/2, 50, 50)
         self.levelCompleteMenu = LevelComplete(screenWidth/2, screenHeight/2, 50, 50)    
+        self.arcadeOverMenu = ArcadeOver(screenWidth/2, screenHeight/2, 50, 50)
         
         self.resetList =[self.playerBoard, self.refBoard, self.MoveCounter, self.LevelGenerator]
 
@@ -74,7 +75,16 @@ class GameManager():
             
                 else:       
                     self.ChangeScene(button.Value)
+        
+        elif self.currentScene == "Arcade":
+            button = self.arcadeOverMenu.GetButton(x, y)
+            if button is not None:
+                self.ChangeScene(button.Value)
                 
+                #if "level" in button.Value:
+                    
+                    
+                        
         #I need to add a value to the button which makes it go to next level 
         # IF we clicked on "next level" then:
         #     Check what the current level is (self.currentLevel), and increase it by 1. 
@@ -117,19 +127,27 @@ class GameManager():
         
     def Display(self):
         if "level" in self.currentScene:
-            
             self.playerBoard.Display()
             self.refBoard.Display()
             self.MoveCounter.Display()
             self.Timer.Display()
-            self.BackButton.Display()     
+            self.BackButton.Display()
+            if self.Timer.OutofTime():
+                self.ChangeScene("arcade complete")
+                
+        elif self.currentScene == "arcade complete":
+            self.playerBoard.Display()
+            self.refBoard.Display()
+            self.MoveCounter.Display()
+            self.Timer.Display()
+            self.arcadeOverMenu.Display()
                  
         elif self.currentScene == "menu":
             self.mainMenu.Display()
             
         elif self.currentScene == "select menu":
             self.levelSelectMenu.Display()
-            
+        
         elif self.currentScene == "complete":
             self.playerBoard.Display()
             self.refBoard.Display()
