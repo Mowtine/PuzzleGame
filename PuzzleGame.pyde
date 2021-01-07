@@ -56,6 +56,51 @@ def setup():
     
     gameManager.arcadeLevels = arcadeLevels
     
+    first = True
+    gameLevels = []
+    
+    
+
+    
+    
+    for initialLevels in f:
+        if first: 
+            first = False 
+        else:
+                    
+            
+            
+            initialLevelslist = initialLevels.strip().split(" ")
+            clicks = []
+            
+            for i in range(0,len(initialLevelslist[1]),2):         
+                x = int(initialLevelslist[1][i])
+                y = int(initialLevelslist[1][i+1])
+                
+                clicks.append([x,y])
+                
+            
+            
+            gameLevels.append([initialLevelslist[0]]+clicks)
+            
+    gameManager.gameLevels = gameLevels
+            
+
+
+            
+            
+
+         
+
+    
+    """You will have to have a loop (likely a while loop) Google how to read a file till the end in python, while there are still lines in this file.
+within the while, save and process each line, like in the arcade levels
+and save them to a list with the level information"""
+
+    """gameLevels = [["levelname", [2, 3]],[ "2.1", [1,2], [3,4]]]
+    ["levelname", [2, 3]]  level information
+    from the file which has a line per level of:
+    2.0 3423 -> ["2.0", [3,4], [2,3]]"""
 
 
     
