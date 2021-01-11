@@ -104,11 +104,16 @@ class GameManager():
         else:
             self.Timer.Pause()
         if "level" in newScene:
-                self.GenerateLevel(int(newScene[0]))
+            if newScene is "next level":
+                self.currentLevel += 1
+            self.GenerateLevel(int(gameLevels[self.currentLevel][0]))
+            #change generate level to my code inside generate level + make an actual input 
             
             
         
         self.currentScene = newScene
+        
+        print(self.currentScene)
         
     def CheckWin(self):
         if self.playerBoard.Equals(self.refBoard): #Impliment Equals check in board
