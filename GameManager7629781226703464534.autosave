@@ -105,21 +105,17 @@ class GameManager():
         if "complete" not in newScene:
             for object in self.resetList:
                 object.Reset()
-
+            self.Timer.Reset(self.arcadeLevels[self.currentLevel]*5)
         else:
             self.Timer.Pause()
         if "level" in newScene:
-
+            
             if "arcade" in newScene:
                 self.GenerateLevel(int(self.arcadeLevels[self.currentLevel]))
             else:
-                if newScene is "next level":
-                    self.currentLevel += 1
-                self.GenerateLevel(int(gameLevels[self.currentLevel][0]))
-            #change generate level to my code inside generate level + make an actual input 
-            
+                self.GenerateLevel(int(newScene[0]))
+                        
         self.currentScene = newScene
-        
         
     def CheckWin(self):
         if self.playerBoard.Equals(self.refBoard): #Impliment Equals check in board
@@ -130,7 +126,7 @@ class GameManager():
     def Reset(self):
         self.MoveCounter.Reset()
         self.playerBoard.Reset()
-        self.Timer.Increment(self.arcadeLevels[self.currentLevel]*5)
+        self.Timer.Reset(self.arcadeLevels[self.currentLevel]*5)
         
     def GenerateLevel(self, moves):
         self.Reset()

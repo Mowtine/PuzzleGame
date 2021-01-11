@@ -1,4 +1,12 @@
 
+import os
+
+# This will be the path to your .py file
+FILE_PATH = os.path.dirname(os.path.abspath(__file__))
+
+# This will be the path to your text file, if it is in the same directory as the .py
+LEVELS_FILE_PATH = os.path.join(FILE_PATH, "levels.txt")
+
 from GameManager import GameManager
 from MoveCounter import MoveCounter
 from Board import Board
@@ -21,7 +29,9 @@ timeZ = screenHeight/8
 
 
 
-f = open("levels.txt", "r")
+f = open(LEVELS_FILE_PATH, 'r')
+
+
 arcadeString = f.readline()  
 stringlevels = arcadeString.split()
 
@@ -55,6 +65,7 @@ for initialLevels in f:
         
         
         gameLevels.append([initialLevelslist[0]]+clicks)
+    
         
 
         

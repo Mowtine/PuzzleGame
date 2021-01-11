@@ -27,8 +27,36 @@ class LevelGenerator():
             self.board.Click(x,y)
             xys.append([x,y])
         
+        
+        return self.board
+    
+
+        
+    def GenerateSpecificLevel(self, level): #["levelname", [2, 3]]
+        
+        input = ['2.0', [1, 1], [1, 2]]
+        
+        self.currentMoves = moves
+        
+        self.board.Reset()
+        xys = []
+        if moves > 16:
+            moves = 16
+                
+                
+        for i in range(1,len(input)):      
+            x = int(input[i][0])
+            y = int(input[i][1])
+            
+
+            self.board.Click(x,y)
+            xys.append([x,y])
+        
+
         return self.board
         
+
+
     def Reset(self):
         
         self.GenerateLevel(self.currentMoves)
