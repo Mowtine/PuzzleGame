@@ -1,5 +1,4 @@
 
-
 from GameManager import GameManager
 from MoveCounter import MoveCounter
 from Board import Board
@@ -19,6 +18,8 @@ countersZ = screenHeight/8
 timeX = screenWidth*3/4
 timeY = screenHeight/20
 timeZ = screenHeight/8
+
+
 
 f = open("levels.txt", "r")
 arcadeString = f.readline()  

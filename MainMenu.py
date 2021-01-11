@@ -13,7 +13,7 @@ class MainMenu():
         self.ButtonHeight = 90
         
         # TASK 1: Change these variables:
-        self.Button1 = Button(x, y - 90, self.ButtonHeight, self.ButtonWidth, "Arcade", "1 level", 35) 
+        self.Button1 = Button(x, y - 90, self.ButtonHeight, self.ButtonWidth, "Arcade", "level arcade", 35) 
         self.Button2 = Button(x, y + 20, self.ButtonHeight, self.ButtonWidth, "Level Select", "select menu", 35)
         self.Button3 = Button(x, y + 130, self.ButtonHeight, self.ButtonWidth, "Settings", "settings", 35)
         

@@ -12,7 +12,7 @@ class ArcadeOver():
         self.ButtonHeight = 100
         
         # TASK 3: Make a "Next" (dw about for now) and "main menu" button. 
-        self.Button1 = Button(x - x/2, y, self.ButtonHeight, self.ButtonWidth, "Restart", "1 level", 34)
+        self.Button1 = Button(x - x/2, y, self.ButtonHeight, self.ButtonWidth, "Restart", "level arcade", 34)
         self.Button2 = Button(x + x/2, y, self.ButtonHeight, self.ButtonWidth, "Main Menu", "menu", 34)
 
         

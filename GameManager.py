@@ -54,8 +54,13 @@ class GameManager():
                 self.MoveCounter.Add()
                 
                 if self.CheckWin():
-                    self.ChangeScene("complete")
-                
+                                        
+                    if "arcade" in self.currentScene:
+                        self.currentLevel += 1
+                        self.ChangeScene("level arcade")
+                    else:
+                        self.ChangeScene("complete")
+                        
         elif self.currentScene == "menu":
             button = self.mainMenu.GetButton(x, y)
             if button is not None:
@@ -104,10 +109,11 @@ class GameManager():
         else:
             self.Timer.Pause()
         if "level" in newScene:
+            
+            if "arcade" in newScene:
+                self.GenerateLevel(int(self.arcadeLevels[self.currentLevel]))
+            else:
                 self.GenerateLevel(int(newScene[0]))
-            
-            
-        
         self.currentScene = newScene
         
     def CheckWin(self):
